@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 
 
 ### Set variables ###
-local_folder = '/Users/lisaoswald/python'
+local_folder = '/Users/python'
 file_name = 'data_flyid_final.csv'
 
 
