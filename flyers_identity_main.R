@@ -192,7 +192,7 @@ sjt.corr(korr_data_pretty)
 cor.plot(korr_data_pretty, main = "Correlation Plot - total",
          cex = 0.6, numbers = TRUE, stars = TRUE, cex.axis = 0.8)
 
-# GGM
+# Gaussian Graphical Model
 fly_cors <- cor_auto(korr_data_pretty, detectOrdinal = FALSE)
 
 FlyingGraph <- qgraph(cor(korr_data_pretty),minimum=0.25,
@@ -217,47 +217,10 @@ fmod<-fit(mod)
 summary(fmod)
 fmod@response
 
-# two groups
-
-# three groups 
-
-# ...
-
-# ---------------> define factor: class 
-
-
-
 # -------------- ANOVA / t-test betw. groups ------
 
 # testing correlations
 cor.test(past_e, global)
-
-#t-Test (mit Welch-Korrektur):
-t.test(x$Frauen,x$Maenner)
-Daten = c(1,2,4,3,4,2,3,0,2,5,4,0,2,1,2,3,1,4,1,3)
-Gruppierung = c(1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2)
-t.test (Daten~Gruppierung)
-t.test (Daten~Gruppierung,var.equal=T) # ohne Welch-Korrektur
-
-# ANOVA univariate
-#Variablen definieren:
-AV = x$Matheleistung
-UV = as.factor(x$Schulform)
-
-#Optional: Bennenen der Faktorstufen:
-UV = factor(UV, label=c("Hauptschule","Realschule","Gymnasium"))
-model.tables(aov(AV~UV),"means")
-summary(aov(AV~UV))
-
-pairwise.t.test(AV,UV, p.adj="bonferroni")
-
-# ANOVA multivariate 
-AV = x$Fahrfehler
-Faktor.A.Musik = as.factor(x$Musik)
-Faktor.B.Teststrecke = as.factor(x$Teststrecke)
-
-ANOVA =aov(AV~Faktor.A.Musik*Faktor.B.Teststrecke) 
-summary(ANOVA)
 
 # BARPLOT
 
@@ -302,7 +265,7 @@ my.box1<-ggplot(my.df1,aes(x=groups,y=mean)) +
   labs(x="location of sport",y="pro-environmental behavior")
 my.box1
 
-# add errorbars / Standardfehler
+# add errorbars / standard error
 sport.graph <- my.box1 +
   geom_errorbar(aes(ymin=mean-se,ymax=mean+se),
                 width=.2)
@@ -310,7 +273,7 @@ sport.graph
 
 colours()
 
-## anderer Graph
+## different graph
 
 library(sciplot)
 bargraph.CI(x.factor=NnaD$SP02,
@@ -338,7 +301,7 @@ contacts.plot <- ggplot(data_fly, mapping=aes(x=NE01_01,y=NE01_03)) +
 contacts.plot
 
 
-# --------------- SEM ------------------------------
+# --------------- Structural Equation Models ------------------------------
 
 med11.txt <- 'fictive_e ~ attitude + sub_norm + control + desire'
 
