@@ -10,14 +10,13 @@ library(readr)
 library(maptools)
 library(maps)
 library(tidyverse)
-#devtools::install_github("dkahle/ggmap")
 library(ggmap)
 
 
 #------------------------- Data ---------------------------------
 
 # google API key
-register_google(key = "AIzaSyAXTG4j5WQcLaozbiB8tXeXU2WeXmTJrBw")
+register_google(key = "")
 
 
 # load python csv documents
