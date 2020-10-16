@@ -156,7 +156,7 @@ data$city <- SD06_03
   
   
 
-# ----------------- dave data ------------------------
+# ----------------- save data ------------------------
 
 save(data, file = "data_fly_id.RData")
 
